@@ -46,7 +46,14 @@ jQuery(function(){
 
     jQuery(document).on('click','.readmore', function(){
         jQuery(this).parents('.carousel-slide-body').find('.carousel-content').toggleClass('expand');
+        jQuery(this).toggleClass('active');
         calculateSlideHeight(true);
+
+        if(jQuery(this).hasClass('active')){
+            jQuery(this).text('Show Less...')
+        } else {
+            jQuery(this).text('Read More...')
+        }
         setTimeout(() => {            
             calculateSlideHeight();
         }, 100)
